@@ -14,7 +14,7 @@ services:
     container_name: db
 
   backend:
-    build: ./backend/
+    image: jans0n27/kittygram_backend
     env_file: .env
     depends_on:
       - db
@@ -25,13 +25,13 @@ services:
 
   frontend:
     env_file: .env
-    build: ./frontend/
+    image: jans0n27/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
 
   gateway:
-    build: ./nginx/
+    image: jans0n27/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
