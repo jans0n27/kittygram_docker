@@ -28,7 +28,7 @@ services:
     image: jans0n27/kittygram_frontend
     command: cp -r /app/build/. /frontend_static/
     depends_on:
-      -backend
+      - backend
     volumes:
       - static:/frontend_static
 
